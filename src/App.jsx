@@ -222,7 +222,7 @@ export default function PersonalWebsite() {
                 <p className="mt-1 text-sm text-slate-500">U.S. patents</p>
               </div>
               <div className="rounded-2xl bg-slate-50 p-5">
-                <p className="text-3xl font-bold">15+</p>
+                <p className="text-3xl font-bold">20+</p>
                 <p className="mt-1 text-sm text-slate-500">papers</p>
               </div>
               <div className="rounded-2xl bg-slate-50 p-5">
