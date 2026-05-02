@@ -86,6 +86,34 @@ const skills = [
   "SSL/TLS",
 ];
 
+const seminalResearch = [
+  {
+    title: "Automated Detection of Vulnerabilities in Privileged Programs by Execution Monitoring",
+    venue: "ACSAC, 1994",
+    details:
+      "Co-authored by Calvin Ko, George Fink, and Karl Levitt, this paper was recognized with the ACSAC Test of Time Award in 2020 for its enduring impact on security research and practice.",
+    url: "https://www.acsac.org/2020/program/test_of_time/",
+  },
+  {
+    title: "Execution Monitoring of Security-Critical Programs: A Specification-Based Approach",
+    venue: "Ph.D. Thesis, 1996",
+    details:
+      "Established a specification-based approach to security monitoring, shifting the focus beyond simple attack signatures toward checking privileged program behavior against formally described policies.",
+  },
+  {
+    title: "Execution Monitoring of Security-Critical Programs in a Distributed System: A Specification-Based Approach",
+    venue: "IEEE Symposium on Security and Privacy, 1997",
+    details:
+      "Co-authored with Manfred Ruschitzka and Karl Levitt, this work extended specification-based intrusion detection from individual hosts into distributed network environments.",
+  },
+  {
+    title: "Holding Intruders Accountable on the Internet",
+    venue: "IEEE Symposium on Security and Privacy, 1995",
+    details:
+      "Introduced the use of thumbprints, short summaries of connection content, to help trace attackers who chained through multiple machines to obscure their origin.",
+  },
+];
+
 function SectionTitle({ eyebrow, title, icon, accent = "text-slate-700", children }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -141,6 +169,7 @@ export default function PersonalWebsite() {
           <div className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
             <a href="#work" className="hover:text-slate-950">Work</a>
             <a href="#background" className="hover:text-slate-950">Background</a>
+            <a href="#research" className="hover:text-slate-950">Research</a>
             <a href="#hobbies" className="hover:text-slate-950">Hobbies</a>
             <a href="#faith" className="hover:text-slate-950">Faith</a>
           </div>
@@ -166,6 +195,9 @@ export default function PersonalWebsite() {
               </a>
               <a href="#background" className="rounded-2xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm hover:bg-slate-100">
                 View background
+              </a>
+              <a href="#research" className="rounded-2xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm hover:bg-slate-100">
+                Read research
               </a>
             </div>
           </div>
@@ -238,6 +270,9 @@ export default function PersonalWebsite() {
                 <h3 className="text-2xl font-bold">Research impact</h3>
               </div>
               <p className="mt-4 leading-7 text-slate-600">
+                Dr. Ko’s work emerged during a pivotal decade (1990–2000) when computer security evolved from isolated government systems to globally interconnected, internet-facing networks. His contributions are widely recognized in foundational security surveys as pioneering behavioral-based monitoring. Among his most influential advances was the development of a formal language for specifying the expected behavior of security-critical privileged programs, such as sendmail and login. By defining normal execution paths, his approach enabled systematic detection of deviations—flagging them as potential intrusions and laying the groundwork for modern anomaly-based intrusion detection systems.
+              </p>
+              <p className="mt-4 leading-7 text-slate-600"> 
                 Co-author of multiple research papers and U.S. patents in intrusion detection, malware analysis, anomaly detection, and policy-driven security monitoring.
               </p>
             </div>
@@ -255,6 +290,80 @@ export default function PersonalWebsite() {
                   <p className="leading-7 text-slate-600">{item.details}</p>
                 </article>
               ))}
+            </div>
+          </div>
+
+          <div id="research" className="mt-10 scroll-mt-24 rounded-3xl border border-emerald-100 bg-white/80 p-8 shadow-sm">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-700">Research background</p>
+                <h3 className="mt-3 text-2xl font-bold text-slate-950">Specification-based intrusion detection</h3>
+                <p className="mt-4 leading-7 text-slate-600">
+                  Dr. Ko was a key member of Professor Karl Levitt's security research group at UC Davis in the 1990s. Their collaboration helped move intrusion detection research away from only detecting known attacks and toward detecting deviations from a program's intended behavior.
+                </p>
+                <p className="mt-4 leading-7 text-slate-600">
+                  His pioneering work established specification-based intrusion detection, a foundational methodology that reshaped how modern intrusion detection systems balance security and accuracy.
+                </p>
+                <ul className="mt-5 space-y-3 text-slate-600">
+                  <li className="leading-7">
+                    <span className="font-semibold text-slate-800">Creating a middle ground:</span> Combined the precision of misuse detection, which identifies known attack signatures, with the flexibility of anomaly detection, which can identify unknown threats.
+                  </li>
+                  <li className="leading-7">
+                    <span className="font-semibold text-slate-800">Reducing false positives:</span> Used manually specified legitimate program behavior rather than statistical normalcy, so unusual but valid activity was less likely to trigger false alarms.
+                  </li>
+                  <li className="leading-7">
+                    <span className="font-semibold text-slate-800">Enabling zero-day defense:</span> Flagged behavior outside a predefined correct model, allowing detection of previously unknown attacks without an existing signature.
+                  </li>
+                  <li className="leading-7">
+                    <span className="font-semibold text-slate-800">Scaling to high-security environments:</span> Influenced methods used in commercial products and critical systems such as smart grids, medical devices, and IoT environments where reliability matters as much as security.
+                  </li>
+                </ul>
+                <div className="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-800">Recognition</p>
+                  <p className="mt-2 leading-7 text-slate-700">
+                    The 1994 paper <span className="font-semibold">Automated Detection of Vulnerabilities in Privileged Programs by Execution Monitoring</span>, by Calvin Ko, George Fink, and Karl Levitt, received the ACSAC Test of Time Award in 2020.
+                  </p>
+                  <a
+                    href="https://www.acsac.org/2020/program/test_of_time/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-emerald-800 hover:text-emerald-950"
+                  >
+                    View ACSAC award page <Icon name="external" className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=JdUjhFYAAAAJ"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 ml-0 inline-flex items-center gap-1 text-sm font-semibold text-emerald-800 hover:text-emerald-950 sm:ml-5"
+                  >
+                    Google Scholar profile <Icon name="external" className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">Seminal papers and theses</h3>
+                <div className="mt-5 space-y-4">
+                  {seminalResearch.map((paper) => (
+                    <article key={paper.title} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                      <p className="text-sm font-semibold text-emerald-700">{paper.venue}</p>
+                      <h4 className="mt-2 text-lg font-bold leading-7 text-slate-950">{paper.title}</h4>
+                      <p className="mt-3 leading-7 text-slate-600">{paper.details}</p>
+                      {paper.url && (
+                        <a
+                          href={paper.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 hover:text-emerald-950"
+                        >
+                          Award page <Icon name="external" className="h-4 w-4" />
+                        </a>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
