@@ -114,6 +114,19 @@ const seminalResearch = [
   },
 ];
 
+const cimMarathonResults = [
+  { year: "2009", bib: "3403", name: "KO CALVIN", city: "SAN JOSE CA", officialTime: "3:48:39", pacePerMile: "8:44" },
+  { year: "2010", bib: "3770", name: "KO CALVIN", city: "SAN JOSE CA", officialTime: "3:58:46", pacePerMile: "9:07" },
+  { year: "2011", bib: "3866", name: "KO CALVIN", city: "SAN JOSE CA", officialTime: "4:17:40", pacePerMile: "9:50" },
+  { year: "2012", bib: "4620", name: "KO CALVIN", city: "SARATOGA CA", officialTime: "4:24:20", pacePerMile: "10:05" },
+  { year: "2013", bib: "4485", name: "KO CALVIN", city: "SARATOGA CA", officialTime: "3:27:31", pacePerMile: "7:55" },
+  { year: "2014", bib: "3952", name: "KO CALVIN", city: "SARATOGA CA", officialTime: "4:03:31", pacePerMile: "9:18" },
+  { year: "2015", bib: "4838", name: "KO CALVIN", city: "SARATOGA CA", officialTime: "3:55:41", pacePerMile: "9:00" },
+  { year: "2016", bib: "4989", name: "KO CALVIN", city: "SARATOGA CA", officialTime: "3:48:03", pacePerMile: "8:42" },
+  { year: "2017", bib: "5304", name: "KO CALVIN", city: "SARATOGA CA", officialTime: "3:59:13", pacePerMile: "9:08" },
+  { year: "2018", bib: "6215", name: "KO CALVIN", city: "SARATOGA CA", officialTime: "4:08:03", pacePerMile: "9:28" },
+];
+
 function SectionTitle({ eyebrow, title, icon, accent = "text-slate-700", children }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -385,18 +398,55 @@ export default function PersonalWebsite() {
           <SectionTitle eyebrow="Running & Triathlon" title="Endurance, discipline, and joy" icon="medal" accent="text-orange-700">
             Running marathons and participating in triathlons have taught me perseverance, patience, humility, and the joy of steady progress.
           </SectionTitle>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              ["Marathon", "Long-distance running and training discipline."],
-              ["Triathlon", "Swimming, cycling, and running as one integrated challenge."],
-              ["Life lessons", "Endurance sports as a way to practice consistency and gratitude."],
-            ].map(([title, text]) => (
-              <div key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-700"><Icon name="medal" className="h-7 w-7" /></div>
-                <h3 className="text-xl font-bold">{title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{text}</p>
+          <div className="space-y-6">
+            <article className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-700">
+                <Icon name="medal" className="h-7 w-7" />
               </div>
-            ))}
+              <h3 className="text-xl font-bold">Marathon</h3>
+              <p className="mt-3 leading-7 text-slate-600">
+                Long-distance running and training discipline, including California International Marathon finishes from 2009 through 2018.
+              </p>
+              <div className="mt-6 overflow-x-auto rounded-2xl border border-orange-100">
+                <table className="min-w-full divide-y divide-orange-100 text-left text-sm">
+                  <thead className="bg-orange-50 text-xs font-semibold uppercase tracking-[0.16em] text-orange-800">
+                    <tr>
+                      <th scope="col" className="px-4 py-3">Year</th>
+                      <th scope="col" className="px-4 py-3">Bib</th>
+                      <th scope="col" className="px-4 py-3">Name</th>
+                      <th scope="col" className="px-4 py-3">City</th>
+                      <th scope="col" className="px-4 py-3">Official Time</th>
+                      <th scope="col" className="px-4 py-3">Pace/Mile</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-orange-100 bg-white text-slate-700">
+                    {cimMarathonResults.map((result) => (
+                      <tr key={result.year} className="hover:bg-orange-50/60">
+                        <td className="whitespace-nowrap px-4 py-3 font-semibold text-slate-900">{result.year}</td>
+                        <td className="whitespace-nowrap px-4 py-3">{result.bib}</td>
+                        <td className="whitespace-nowrap px-4 py-3">{result.name}</td>
+                        <td className="whitespace-nowrap px-4 py-3">{result.city}</td>
+                        <td className="whitespace-nowrap px-4 py-3 font-semibold text-slate-900">{result.officialTime}</td>
+                        <td className="whitespace-nowrap px-4 py-3">{result.pacePerMile}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {[
+                ["Triathlon", "Swimming, cycling, and running as one integrated challenge."],
+                ["Life lessons", "Endurance sports as a way to practice consistency and gratitude."],
+              ].map(([title, text]) => (
+                <div key={title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-700"><Icon name="medal" className="h-7 w-7" /></div>
+                  <h3 className="text-xl font-bold">{title}</h3>
+                  <p className="mt-3 leading-7 text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
